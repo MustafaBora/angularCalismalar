@@ -7,8 +7,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class ProductComponent implements OnInit {
 
-  @Input('prodName') product:string = "";
-  @Output() myButtonRemoveAction = new EventEmitter();
+  @Input('productName') product:string = "";
+  @Output() productClicked = new EventEmitter();
 
   constructor() { }
 
@@ -16,7 +16,7 @@ export class ProductComponent implements OnInit {
   }
 
   removeActionEmit(product:any) {
-    this.myButtonRemoveAction.emit(product);
+    this.productClicked.emit(product);
   }
 
 }
