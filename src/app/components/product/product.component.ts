@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-product',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductComponent implements OnInit {
 
+  @Input('productName') product:string = "";
+  @Output() productClicked = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  removeActionEmit(product:any) {
+    this.productClicked.emit(product);
   }
 
 }
